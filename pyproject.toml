@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "q4-capstone-calendar-app"
+version = "0.1.0"
+description = ""
+authors = ["AnthonyNickson <Nicksonaaireent@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.2.5"
+pep8 = "^1.7.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

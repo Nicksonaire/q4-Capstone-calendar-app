@@ -30,7 +30,7 @@ class Register_View(View):
 class ProfileView(View):
 
     def get(self, request, user_id):
-        special_user = MyUser.objects.get(id=user_id)
+        special_user = MyUser.objects.get(username=user_id)
         goals = Goal.objects.all()
         goals = Goal.objects.filter(assigned_by=special_user)
         return render(request, "profile.html", {"special_user": special_user, "goals": goals})

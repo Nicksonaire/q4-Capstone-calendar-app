@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("register/", user_views.Register_View.as_view()),
     path("user/<int:user_id>/", user_views.ProfileView.as_view()),
+    path("login/", user_views.LoginView.as_view()),
 ]

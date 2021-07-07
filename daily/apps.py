@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class UserStuffConfig(AppConfig):
+class DailyConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'user_stuff'
+    name = 'daily'

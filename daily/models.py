@@ -8,6 +8,7 @@ class Habit(models.Model):
 
 
 class DailyPlan(models.Model):
+    goal = models.ForeignKey("Goal", on_delete=models.CASCADE)
     what = models.TextField()
     when = models.DateField()
     who = models.TextField()

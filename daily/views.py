@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def daily_view(request):
+    return render(request, "daily.html", {'user': request.user})

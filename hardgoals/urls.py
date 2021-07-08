@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from user_stuff import views as user_views
+from daily import views as daily_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("register/", user_views.Register_View.as_view()),
     path("user/<user_id>/", user_views.ProfileView.as_view()),
     path("login/", user_views.LoginView.as_view()),
+    path("user/<username>/daily/", daily_views.daily_view, name='daily')
 ]

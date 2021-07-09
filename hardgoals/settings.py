@@ -124,16 +124,12 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = "/static/"
+STATIC_ROOT = str(BASE_DIR.joinpath('static'))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-<<<<<<< HEAD
-AUTH_USER_MODEL = "cal_app.MyUser"
-=======
 
 
 AUTH_USER_MODEL = "cal_app.MyUser"
->>>>>>> b8ea6aab7c065f1a19817b88ece32139789adcab

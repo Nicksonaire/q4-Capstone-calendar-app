@@ -27,4 +27,4 @@ urlpatterns = [
     path("login/", user_views.LoginView.as_view()),
     path("", include("month_app.urls")),
     path("user/<username>/daily/", daily_views.daily_view, name='daily')
-]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

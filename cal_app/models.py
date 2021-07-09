@@ -18,7 +18,7 @@ class Goal(models.Model):
     who = models.TextField()
     assigned_by = models.ForeignKey(
         MyUser,
-        related_name="assigned_by",
+        related_name="%(class)s_assigned_by",
         on_delete=models.CASCADE,
         null=True,
         blank=True,

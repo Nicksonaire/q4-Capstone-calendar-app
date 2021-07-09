@@ -130,10 +130,6 @@ STATIC_ROOT = "/static/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-<<<<<<< HEAD
-AUTH_USER_MODEL = "cal_app.MyUser"
-=======
 
 
 AUTH_USER_MODEL = "cal_app.MyUser"
->>>>>>> b8ea6aab7c065f1a19817b88ece32139789adcab

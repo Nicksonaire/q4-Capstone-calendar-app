@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 class MyUser(AbstractUser):
     name = models.CharField(max_length=40)
-    age = models.IntegerField()
+    age = models.IntegerField(null=True, blank=True)
     email = models.EmailField(max_length=40)
 
 
@@ -14,7 +14,7 @@ class Goal(models.Model):
     dream = models.CharField(max_length=200)
     goal = models.CharField(max_length=200)
     what = models.TextField()
-    when = models.DateTimeField(auto_now_add=True)
+    when = models.DateField()
     who = models.TextField()
     assigned_by = models.ForeignKey(
         MyUser,

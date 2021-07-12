@@ -10,5 +10,16 @@
 </head>
 <body>
     <h1>{{user}}</h1>
+    <h2> Goals</h2>
+    <ul>
+    {% for goal in goals %}
+        <li>
+            <div>{{goal.goal}}</div>
+            <div>What to do today:{{goal.what}}</div>
+            <div>When to do it by: {{goal.when}}</div>
+            <div>Who can help: {{goal.who}}</div>
+        </li>
+    {% endfor %}
+    </ul>
 </body>
 </html>

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "user_stuff",
     "welcome",
     "month_app",
+    "daily"
 ]
 
 MIDDLEWARE = [

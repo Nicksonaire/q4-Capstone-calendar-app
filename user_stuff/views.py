@@ -1,9 +1,10 @@
 from cal_app.models import MyUser
 from django.shortcuts import render, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
 from user_stuff.forms import MyUserForm, LoginForm
-from cal_app.models import MyUser, Goal
+from cal_app.models import MyUser, Goal, Dream
 # Create your views here.
 
 class Register_View(View):
@@ -29,13 +30,14 @@ class Register_View(View):
                 return HttpResponseRedirect(f"/user/{user.username}/daily/")
 
 
-class ProfileView(View):
 
-    def get(self, request, user_id):
-        special_user = MyUser.objects.get(username=user_id)
-        goals = Goal.objects.all()
-        goals = Goal.objects.filter(assigned_by=special_user)
-        return render(request, "profile.html", {"special_user": special_user, "goals": goals})
+class ProfileView(View):
+    template = "profile.html"
+
+    def get(self, request, username):
+        user = MyUser.objects.get(username=username)
+        dreams = Dream.objects.filter(assigned_to=user)
+        return render(request, self.template, {"user": user, "dreams": dreams})
 
 
 class LoginView(View):

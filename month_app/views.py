@@ -14,15 +14,15 @@ class CalendarView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        d = get_date(self.request.GET.get("day", None))
+        d = self.get_date(self.request.GET.get("day", None))
 
         month_app = Calendar(d.year, d.month)
         html_month_app = month_app.formatmonth(withyear=True)
         context["calendar"] = mark_safe(html_month_app)
         return context
 
-def get_date(req_day):
-    if req_day:
-        year, month = (int(x) for x in req_day.split("-"))
-        return date(year, month, day=1)
-    return datetime.today()
+    def get_date(self, req_day):
+        if req_day:
+            year, month = (int(x) for x in req_day.split("-"))
+            return date(year, month, day=1)
+        return datetime.today()

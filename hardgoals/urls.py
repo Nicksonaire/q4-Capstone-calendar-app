@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from user_stuff import views as user_views
+handler404 = user_views.error_404
+handler500 = user_views.error_500
 
 urlpatterns = [
     path('admin/', admin.site.urls),

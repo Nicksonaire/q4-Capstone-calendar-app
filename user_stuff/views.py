@@ -53,3 +53,9 @@ class LoginView(View):
             if user:
                 login(request, user)
                 return HttpResponseRedirect("/")
+
+def error_404(request, exception):
+        data = {}
+        return render(request,'404.html', data)
+def error_500(request):
+        return render(request,'500.html')

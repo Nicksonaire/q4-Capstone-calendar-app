@@ -17,14 +17,16 @@ class Register_View(View):
         form = MyUserForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            MyUser.objects.create_user(
+            user = MyUser.objects.create_user(
                 username = data["username"],
                 password = data["password"],
                 email = data["email"],
                 age = data["age"],
                 name = data["name"],
             )
-            return HttpResponseRedirect("/")
+            if user:
+                login(request, user)
+                return HttpResponseRedirect(f"/user/{user.username}/daily/")
 
 
 class ProfileView(View):
@@ -52,4 +54,4 @@ class LoginView(View):
             )
             if user:
                 login(request, user)
-                return HttpResponseRedirect("/")
+                return HttpResponseRedirect(f"/user/{user.username}/daily/")

@@ -15,7 +15,7 @@ class MyUser(AbstractUser):
 
 class Dream(models.Model):
     dream = models.CharField(max_length=200)
-    goals = models.ForeignKey("Goal", related_name="dream", on_delete=models.CASCADE)
+    goals = models.ForeignKey("Goal", related_name="dream", on_delete=models.CASCADE, null=True, blank=True)
     owner = models.ForeignKey(
         MyUser,
         related_name="%(class)s_assigned_by",

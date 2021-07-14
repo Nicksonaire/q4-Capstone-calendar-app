@@ -1,2 +1,22 @@
 <p>{{request.user.name}}</p>
 <h1>{{user.name}}</h1>
+
+<h2>Dreams</h2>
+<button type="button"><a href=''>Add New Dream</a></button>
+<ul>
+    {% for dream in dreams %}
+        <li key={{dream.id}}>{{dream.dream}}</li>
+        {% if dream.goals %}
+        <h3>Goals</h3>
+        <button type="button"><a href=''>Add New Goal</a></button>
+        <ul>
+            {% for goal in dream.goals %}
+            <li>
+                <p>{{goal.goal}}</p>
+                <p>To be done by {{goal.end}}</p>
+            </li>
+            {%endfor%}
+        </ul>
+        {% endif %}
+    {% endfor %}
+</ul>

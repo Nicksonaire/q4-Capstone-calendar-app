@@ -24,7 +24,9 @@ from cal_app import views as main_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("register/", user_views.Register_View.as_view()),
-    path("user/<username>/", user_views.ProfileView.as_view()),
+    path("user/<username>/", user_views.ProfileView.as_view(), name="user-main"),
+    path("user/<username>/create_dream/", main_views.create_dream),
+    path("user/<username>/<dream_id>/create_goal/", main_views.create_goal),
     path("login/", user_views.LoginView.as_view()),
     path("", include("month_app.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

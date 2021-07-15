@@ -6,6 +6,7 @@
 </form>
 {% if register %}
 <a href="/login/">Already have an account?</a>
-{% else %}
+{% endif %}
+{% if login %}
 <a href="/register/">Not signed up?</a>
 {% endif %}

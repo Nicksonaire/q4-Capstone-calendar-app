@@ -12,7 +12,7 @@ class Register_View(View):
 
     def get(self, request):
         form = MyUserForm()
-        return render(request, self.template, {"form": form})
+        return render(request, self.template, {"form": form, "register": True})
 
     def post(self, request):
         form = MyUserForm(request.POST)
@@ -36,7 +36,7 @@ class ProfileView(View):
 
     def get(self, request, username):
         user = MyUser.objects.get(username=username)
-        dreams = Dream.objects.filter(assigned_to=user)
+        dreams = Dream.objects.filter(owner=user)
         return render(request, self.template, {"user": user, "dreams": dreams})
 
 
@@ -52,8 +52,12 @@ class LoginView(View):
         if form.is_valid():
             data = form.cleaned_data
             user = authenticate(
-                request, username=data.get("username"), password=data.get("password")
+                request, username=data["username"], password=data["password"]
             )
             if user:
                 login(request, user)
                 return HttpResponseRedirect(f"/user/{user.username}/daily/")
+            form = LoginForm()
+            input_error = "username or password is invalid"
+            return render(request, self.template, {"form": form, "input_error": input_error})
+            

@@ -38,13 +38,13 @@ class Register_View(View):
 class ProfileView(View):
 
     def get(self, request, username):
-        user = MyUser.objects.get(username=username)
-        dreams = Dream.objects.filter(owner=user)
-        dream_list = self.List(user, dreams)
-        dream_list_html = dream_list.format_dreams()
-
-        
-        return render(request, "profile.html", {"user": user, "dream_list": mark_safe(dream_list_html)})
+        if self.request.user.is_authenticated:
+            user = MyUser.objects.get(username=username)
+            dreams = Dream.objects.filter(owner=user)
+            dream_list = self.List(user, dreams)
+            dream_list_html = dream_list.format_dreams()
+            return render(request, "profile.html", {"user": user, "dream_list": mark_safe(dream_list_html)})
+        return HttpResponseRedirect("/login")
 
     class List:
         def __init__(self, user,  dreams):

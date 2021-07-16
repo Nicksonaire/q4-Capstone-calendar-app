@@ -18,7 +18,6 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from user_stuff import views as user_views
-from daily import views as daily_views
 from cal_app import views as main_views
 
 urlpatterns = [
@@ -27,6 +26,7 @@ urlpatterns = [
     path("user/<username>/", user_views.ProfileView.as_view(), name="user-main"),
     path("user/<username>/create_dream/", main_views.create_dream),
     path("user/<username>/<dream_id>/create_goal/", main_views.create_goal),
+    path("user/<username>/", include("month_app.urls")),
+    path("user/<username>/logout/", user_views.signout),
     path("login/", user_views.LoginView.as_view()),
-    path("", include("month_app.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

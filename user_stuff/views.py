@@ -1,3 +1,4 @@
+from django import http
 from cal_app.models import MyUser
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -90,4 +91,10 @@ class LoginView(View):
             form = LoginForm()
             input_error = "username or password is invalid"
             return render(request, self.template, {"form": form, "input_error": input_error})
+
+
+def signout(request, username):
+    user = MyUser.objects.get(username=username)
+    logout(request)
+    return HttpResponseRedirect("/")
             

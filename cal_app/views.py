@@ -4,6 +4,7 @@ from .models import MyUser, Goal, Dream
 from .forms import GoalForm, DreamForm
 
 
+@login_required(login_url="/login")
 def create_goal( request, username, dream_id):
             if request.method == "POST":
                 form = GoalForm(request.POST)
@@ -23,7 +24,8 @@ def create_goal( request, username, dream_id):
             form = GoalForm()
             return render(request, "generic_form.html", {'form': form})
 
-            
+
+@login_required(login_url="/login")       
 def create_dream( request, username):
         if request.method == "POST":
             form = DreamForm(request.POST)

@@ -88,7 +88,7 @@ class LoginView(View):
                 return HttpResponseRedirect(f"/user/{user.username}/")
             form = LoginForm()
             input_error = "username or password is invalid"
-            return render(request, self.template, {"form": form, "input_error": input_error})
+            return render(request, self.template, {"form": form, "input_error": input_error, "login": True})
 
 
 def signout(request, username):

@@ -4,10 +4,11 @@ from month_app.models import Month
 
 
 class Calendar(HTMLCalendar):
-    def __init__(self, year=None, month=None):
+    def __init__(self, year=None, month=None, username=None):
 
         self.year = year
         self.month = month
+        self.username = username
         super(Calendar, self).__init__()
 
     def formatday(self, day, goals):
@@ -18,7 +19,7 @@ class Calendar(HTMLCalendar):
             d += f"<li> {goal.title}</li>"
 
         if day != 0:
-            return f"<td><span>{day}</span><ul> {d} </ul></td>"
+            return f"<a href='/user/{self.username}/day/{self.year}-{self.month}-{day}><td><span>{day}</span><ul> {d} </ul></td></a>"
         return "<td></td>"
 
     def formatweek(self, theweek, goals):

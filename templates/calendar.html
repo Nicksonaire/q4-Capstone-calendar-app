@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block stylelink%}
+    <link rel="stylesheet" href="{% static 'month_app/calendar.css' %}">
+{% endblock %}
+{% block title %}
+    <title>Calendar</title>
+{% endblock%}
+
+{% block content %}
+    {{ calendar }}
+{% endblock %}

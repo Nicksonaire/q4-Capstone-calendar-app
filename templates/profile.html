@@ -1,5 +1,13 @@
-<h1>Welcome, {{user.name}}!</h1>
+{% extends 'base.html' %}
 
-<a href="/user/{{user.username}}/logout/">Logout</a>
+{% block title %}
+    <title>{{user.name}}'s Profile</title>
+{% endblock %}
 
-{{dream_list}}
+{% block content %}
+    <h1>Welcome, {{user.name}}!</h1>
+
+    <a href="/user/{{user.username}}/logout/">Logout</a>
+
+    {{dream_list}}
+{% endblock %}

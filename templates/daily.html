@@ -1,29 +1,27 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block stylelink %}
     <link rel="stylesheet" href="{% static 'daily/daily.css' %}">
+{% endblock %}
+
+{% block title %}
     <title>Daily</title>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     {% if user == None %}
-    <h1>{{user}}</h1>
+        <h1>{{user}}</h1>
     {% endif %}
     <h2> Goals</h2>
-
     <input type="button"><a>Create New Goal</a></input>
     <ul>
-    {% for goal in goals %}
-    <li key={{goal.id}} class="goal-item">
-        <div>{{goal.goal}}</div>
-        <div>What to do today:{{goal.what}}</div>
-        <div>When to do it by: {{goal.when}}</div>
-        <div>Who can help: {{goal.who}}</div>
-    </li>
-    {% endfor %}
+        {% for goal in goals %}
+            <li key={{goal.id}} class="goal-item">
+                <div>{{goal.goal}}</div>
+                <div>What to do today:{{goal.what}}</div>
+                <div>When to do it by: {{goal.when}}</div>
+                <div>Who can help: {{goal.who}}</div>
+            </li>
+        {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

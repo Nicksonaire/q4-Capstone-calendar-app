@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "month_app",
-    "daily"
+    "daily",
+    "cal_app",
+    "rest_framework",
+    "user_stuff",
+    "welcome"
 ]
 
 MIDDLEWARE = [
@@ -124,15 +128,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-<<<<<<< HEAD
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-=======
 # STATICFILES_ROOT = os.path.join(BASE_DIR, "static").replace("\\", "/")
 
 STATIC_URL = "/static/"
->>>>>>> 540943b1c1b5614d2936b24239865a96261e9922
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -140,4 +141,4 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-# AUTH_USER_MODEL = "month_app.MyUser"
+AUTH_USER_MODEL = "cal_app.MyUser"

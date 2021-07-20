@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-<<<<<<< HEAD
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
@@ -34,25 +33,3 @@ urlpatterns = [
     path("user/<username>/logout/", user_views.signout),
     path("login/", user_views.LoginView.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-=======
-from django.urls import path
-
-# from django.conf.urls.static import static
-# from django.conf import settings
-from month_app import views
-
-# from rest_framework import routers
-
-# from month_app.urls import urlpatterns as _urls
-
-
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", views.CalendarRedirect.as_view()),
-    path("month_app/<pk>/", views.EventList.as_view()),
-    path("month_app/calendar/<year>/<month>/<day>/", views.calendar),
-    # path("", include("month_app.urls")),
-]
-# ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-# urlpatterns = month_app_urls
->>>>>>> 540943b1c1b5614d2936b24239865a96261e9922

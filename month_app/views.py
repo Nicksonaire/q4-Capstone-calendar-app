@@ -1,13 +1,13 @@
 from django.views import generic
 from django.utils.safestring import mark_safe
 from datetime import datetime, date
-from month_app.models import Month
 from month_app.utils import Calendar
+from cal_app.models import Goal
 
 # Create your views here.
 
 class CalendarView(generic.ListView):
-    model = Month
+    model = Goal
     template_name = "calendar.html"
 
     def get_context_data(self, **kwargs):

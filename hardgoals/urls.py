@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from user_stuff import views as user_views
 from cal_app import views as main_views
+from daily import views as daily_views
 from welcome.views import welcome_view
 from django.contrib.auth.decorators import login_required
 
@@ -29,8 +30,10 @@ urlpatterns = [
     path("user/<username>/", login_required(
         user_views.ProfileView.as_view(), login_url="/login"),
         name="user-main"),
+    path("user/<username>/dayview/", daily_views.daily_view),
     path("user/<username>/create_dream/", main_views.create_dream),
-    path("user/<username>/<dream_id>/create_goal/", main_views.create_goal),
+    path("user/<username>/create_goal/", main_views.create_goal),
+    path("user/<username>/create_plan/", daily_views.add_daily_plan),
     path("user/<username>/", include("month_app.urls")),
     path("user/<username>/logout/", user_views.signout),
     path("login/", user_views.LoginView.as_view()),

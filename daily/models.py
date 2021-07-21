@@ -9,7 +9,7 @@ class Habit(models.Model):
 
 
 class DailyPlan(models.Model):
-    goal = models.ForeignKey(Goal, on_delete=models.CASCADE)
+    goal = models.ForeignKey(Goal, related_name="plans", on_delete=models.CASCADE)
     what = models.TextField()
     when = models.TimeField()
     day_assigned = models.DateField()

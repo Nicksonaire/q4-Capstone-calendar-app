@@ -9,19 +9,8 @@
 {% endblock %}
 
 {% block content %}
-    {% if user == None %}
-        <h1>{{user}}</h1>
-    {% endif %}
-    <h2> Goals</h2>
-    <input type="button"><a>Create New Goal</a></input>
-    <ul>
-        {% for goal in goals %}
-            <li key={{goal.id}} class="goal-item">
-                <div>{{goal.goal}}</div>
-                <div>What to do today:{{goal.what}}</div>
-                <div>When to do it by: {{goal.when}}</div>
-                <div>Who can help: {{goal.who}}</div>
-            </li>
-        {% endfor %}
-    </ul>
+    <h2> {{ day }}</h2>
+    {{day_list}}
+
+    <a href="/user/{{user.username}}/calendar/">Back to calendar</a>
 {% endblock %}

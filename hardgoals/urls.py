@@ -19,10 +19,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from user_stuff import views as user_views
 from cal_app import views as main_views
+from welcome.views import welcome_view
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', welcome_view, name="index"),
     path("register/", user_views.Register_View.as_view()),
     path("user/<username>/", login_required(
         user_views.ProfileView.as_view(), login_url="/login"),

@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from calendar import HTMLCalendar
 from cal_app.models import Goal, MyUser
 from daily.models import DailyPlan
+from datetime import date
 
 
 class Calendar(HTMLCalendar):
@@ -13,15 +14,20 @@ class Calendar(HTMLCalendar):
         super(Calendar, self).__init__()
 
     def formatday(self, day, goals):
-
-        daily = goals.filter(end__day=day)
+        daily = []
+        for goal in goals:
+            if date.fromisoformat(day) >= goal.start and date.fromisoformat(day) <= goal.end:
+                daily.append(goal)
         formatted_month = str(self.month).rjust(2, '0') if len(str(self.month)) < 2 else self.month
         formatted_day = str(day).rjust(2, '0') if len(str(day)) <2 else day
-        d = ""
+
         for goal in daily:
-            d += f"<li> {goal.goal}</li>"
+            plans = ""
+            if goal.plans:
+                plans += f"<a href='/user/{self.user.username}/dayview?day={self.year}-{formatted_month}-{formatted_day}''>See plan</a>"
+            d += f"<li> {goal.goal}- {plans}</li>"
         if day != 0:
-            return f"<td><span><a href='/user/{self.user.username}/dayview?day={self.year}-{formatted_month}-{formatted_day}'>{day}</a></span><ul> {d} </ul></td>"
+            return f"<td><span>{day}</span><a href='/user/{self.user.username}/create_plan?day={self.year}-{formatted_month}-{formatted_day}'>Create Plan</a><ul> {d} </ul></td>"
         return "<td></td>"
 
     def formatweek(self, theweek, goals):

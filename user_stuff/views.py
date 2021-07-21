@@ -1,5 +1,4 @@
 from django import http
-from cal_app.models import MyUser
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout

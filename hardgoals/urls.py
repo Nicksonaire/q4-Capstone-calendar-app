@@ -19,11 +19,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from user_stuff import views as user_views
 from cal_app import views as main_views
-<<<<<<< HEAD
 from daily import views as daily_views
-=======
 from welcome.views import welcome_view
->>>>>>> d4e1587b10d8224e4fe160f2e8d8d24ec2c6b833
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [

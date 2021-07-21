@@ -66,7 +66,7 @@ def add_daily_plan(request, username):
                         when = data['when'],
                         day_assigned = date.fromisoformat(day)
                     )
-                return HttpResponseRedirect(f"/user/{username}/dayview?day={request.GET.get('day')}")
+                    return HttpResponseRedirect(f"/user/{username}/dayview/", get={"day": date.fromisoformat(day) })
 
             form = DailyPlanForm()
             return render(request, "generic_form.html", { 'form': form})

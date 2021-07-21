@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE HTML>
 <!--
 	Alpha by HTML5 UP
@@ -5,11 +6,12 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+	
 	<head>
 		<title>Make HARD Goals</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="{% static 'welcome/assets/css/main.css' %}" />
 	</head>
 	<body class="landing is-preload">
 		<div id="page-wrapper">
@@ -19,12 +21,13 @@
 					<h1><a href="index.html">HARD Goals</a> inspired by Mel Robbins</h1>
 					<nav id="nav">
 						<ul>
+						
 							<li><a href="index.html">Home</a></li>
-							<li>
+							<!-- <li>
 								<a href="#" class="icon solid fa-angle-down">Layouts</a>
 								<ul>
-									<li><a href="generic.html">Generic</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="generic.html">Profile</a></li>
+									<li><a href="contact.html">Calender</a></li>
 									<li><a href="elements.html">Elements</a></li>
 									<li>
 										<a href="#">Submenu</a>
@@ -36,8 +39,9 @@
 										</ul>
 									</li>
 								</ul>
-							</li>
+							</li> -->
 							<li><a href="#" class="button">Sign Up</a></li>
+							<li><a href="#" class="button">Log In</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -60,10 +64,9 @@
 							<h2>HARD Goals Calendar
 							<br />
 							Track your Goals, Reach Your Dreams</h2>
-							<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br />
-							adipiscing nunc adipiscing. Condimentum turpis massa.</p>
+							<p>A calendar app that helps you manage  and achieve your <b>Goals</b> <br />by implementing <b>Mel Robbins's</b> <b><i>HARD Goals</i></b> method.</p>
 						</header>
-						<span class="image featured"><img src="welcome/templates/html5up-alpha/images/Mel-Robbins-SH-Goals.pdf" alt="" /></span>
+						<span class="image featured"><img src="{% static 'welcome/html5up-alpha/images/Mel-Robbins-SH-Goals.pdf' %}" alt="" /></span>
 					</section>
 
 					<section class="box special features">
@@ -71,24 +74,35 @@
 							<section>
 								<span class="icon solid major fa fa-history" ></span>
 								<h3>Habit</h3>
-								<p class="habit">Your <b>Goals</b>  should be Habits that have <i>trigger</i>, <i>repeatable action</i>, and a <i>reward</i>.</p>
+								<p class="habit">Any <b>Goal</b> you set should be able to become a habit in your life, something you enjoy, something you want to do.
+									<b>Trigger</b>: Something to remind you of what you need to do.
+									<b>Action</b>: Something done to reach the goal, done same way at the same time each time.
+									<b>Reward</b>: Something to treat yourself for accomplishing the action.</p>
 							</section>
 							<section>
 								<span class="icon solid major fa fa-bolt" style="background-color: rgb(149, 80, 100);"></span>
 								<h3>Alive</h3>
-								<p>Your <b>Goals</b> should make you fell <b>Alive</b> <i>after</i> you do it.</p>
+								<p>The <b>Goal</b> should be something that makes you feel <i>energized</i>, <i>motivated</i>, and <b>Alive</b> <i>after</i> you do it; this feeling can be used as a motivator to keep you moving forward. Count down 5... 4... 3... 2... and when you get to 1, just doing it!</p>
 							</section>
 						</div>
 						<div class="features-row">
 							<section>
 								<span class="icon solid major fa-solid fa-mountain" style="background-color: rgb(180, 131, 16);"></span>
 								<h3>Reachable</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<p>When a <b>Goal</b> is <i>reachable</i>, you will make the change stick.Make sure the <b>Goal</b> has a tangible ending, something that you can see yourself being capable of achieving, and make sure that you have a way to remind yourself of that ending to push forward.</p>
 							</section>
 							<section>
 								<span class="icon solid major fa-solid fa-calendar-day" style="background-color: rgb(179, 190, 23);"></span>
 								<h3>Daily</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<p>Every day you should have a daily plan to reach that goal.
+								<br>
+									3 W's:
+									What do you need to acomplish today?
+									Who can help me?
+									When do I need to get it done by?
+								<br>
+								By answering the 3 W's every day will, you will make steady progess towards achieving your <b>Dreams</b>.
+								</p>
 							</section>
 						</div>
 					</section>
@@ -159,14 +173,15 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+			<script src="{% static 'welcome/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'welcome/assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'welcome/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'welcome/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'welcome/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'welcome/assets/js/util.js' %}"></script>
+			<script src="{% static 'welcome/assets/js/main.js' %}"></script>
+			<script src="{% static 'welcome/https://kit.fontawesome.com/yourcode.js' %}" crossorigin="anonymous"></script>
 
 	</body>
 </html>

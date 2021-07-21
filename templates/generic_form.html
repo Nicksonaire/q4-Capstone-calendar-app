@@ -1,5 +1,5 @@
 <p style="color: red;">{{input_error}}</p>
-<form method="POST">
+<form method="POST" action="">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="submit"/>

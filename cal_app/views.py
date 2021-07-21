@@ -5,13 +5,13 @@ from .forms import GoalForm, DreamForm
 
 
 @login_required(login_url="/login")
-def create_goal( request, username):
+def create_goal( request, username, dream_id):
             if request.method == "POST":
                 form = GoalForm(request.POST)
                 if form.is_valid():
                     data = form.cleaned_data
                     user = MyUser.objects.get(username=username)
-                    dream = Dream.objects.get(id=request.GET.get("dream"))
+                    dream = Dream.objects.get(id=dream_id)
                     new_goal = Goal.objects.create(
                         dream = dream,
                         goal = data['goal'],

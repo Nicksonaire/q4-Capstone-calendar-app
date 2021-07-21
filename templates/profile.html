@@ -7,10 +7,12 @@
 {% block content %}
     <h1>Welcome, {{user.name}}!</h1>
 
-    <a href="/user/{{user.username}}/logout/">Logout</a>
-    <hr/>
-
+    Your Dreams:
+    <br>
     {{dream_list}}
-
-    <a href='/user/{{user.username}}/calendar/'>Go to Calendar</a>
+    <p></p>
+    <a href="calendar/" class="button">View Calendar</a>
+    
+    <p></p>
+    <a href="/user/{{user.username}}/logout/" class="button">Logout</a>
 {% endblock %}

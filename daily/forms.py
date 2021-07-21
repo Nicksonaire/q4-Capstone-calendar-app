@@ -1,16 +1,11 @@
-from django.forms import ModelForm, DateInput,TimeInput
+from django import forms
 from datetime import date
-from .models import DailyPlan
+# from cal_app.models import Goal
 
 
-class DailyPlanForm(ModelForm):
-    class Meta:
-        model = DailyPlan
-        widgets = {
-            "when" : TimeInput(attrs={'type': 'time'}, format='T%H:%M')
-        }
-        fields = ["what", 'when', 'who']
-    
-    def __init__(self, *args, **kwargs):
-        super(DailyPlanForm, self).__init__(*args, **kwargs)
-        self.fields["when"].input_formats = ('T%H:%M',)
+class DailyPlanForm(forms.Form):
+    # goal = forms.ChoiceField(choices=Goal.objects.all())
+    what = forms.CharField()
+    when = forms.TimeField()
+    who = forms.CharField()
+    date_assigned = forms.DateField()

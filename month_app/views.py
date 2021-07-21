@@ -15,7 +15,7 @@ class CalendarView(generic.ListView):
 
             d = self.get_date(self.request.GET.get("day", None))
 
-            month_app = Calendar(d.year, d.month, self.request.user,)
+            month_app = Calendar(self.request.user.id, d.year, d.month)
             html_month_app = month_app.formatmonth(withyear=True)
             context["calendar"] = mark_safe(html_month_app)
             return context
@@ -24,7 +24,7 @@ class CalendarView(generic.ListView):
         if req_day:
             year, month = (int(x) for x in req_day.split("-"))
             return date(year, month, day=1)
-        return date.today()
+        return datetime.today()
 # from django.shortcuts import render, get_object_or_404
 
 # # from django.http import HttpResponse, HttpResponseRedirect

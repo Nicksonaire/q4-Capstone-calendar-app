@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import redirect, reverse
 from cal_app.models import MyUser, Goal
 from .forms import DailyPlanForm
 from .models import DailyPlan
@@ -7,6 +8,7 @@ from django.utils.safestring import mark_safe
 
 def daily_view(request, username):
     all_goals = Goal.objects.filter(assigned_to=request.user)
+    day = request.GET.get("day")
     today_goals = []
     for goal in all_goals:
         if date.fromisoformat(request.GET.get("day")) >= goal.start and date.fromisoformat(request.GET.get("day")) <= goal.end:
@@ -66,7 +68,7 @@ def add_daily_plan(request, username):
                         when = data['when'],
                         day_assigned = date.fromisoformat(day)
                     )
-                    return HttpResponseRedirect(f"/user/{username}/dayview/", get={"day": date.fromisoformat(day) })
+                return redirect(f"/user/{username}/dayview?day={request.GET.get('day')}")
 
             form = DailyPlanForm()
             return render(request, "generic_form.html", { 'form': form})

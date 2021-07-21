@@ -30,7 +30,7 @@ urlpatterns = [
     path("user/<username>/", login_required(
         user_views.ProfileView.as_view(), login_url="/login"),
         name="user-main"),
-    path("user/<username>/dayview/", daily_views.daily_view),
+    path("user/<username>/dayview/", daily_views.daily_view, name="dayview"),
     path("user/<username>/create_dream/", main_views.create_dream),
     path("user/<username>/create_goal/", main_views.create_goal),
     path("user/<username>/create_plan/", daily_views.add_daily_plan),

@@ -7,10 +7,6 @@ class DailyPlanForm(ModelForm):
     class Meta:
         model = DailyPlan
         widgets = {
-            "when" : TimeInput(attrs={'type': 'time'}, format='T%H:%M')
+            "when" : TimeInput(attrs={'type': 'time'})
         }
         fields = ["what", 'when', 'who']
-    
-    def __init__(self, *args, **kwargs):
-        super(DailyPlanForm, self).__init__(*args, **kwargs)
-        self.fields["when"].input_formats = ('T%H:%M',)

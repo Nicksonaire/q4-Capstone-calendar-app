@@ -32,7 +32,7 @@ class Calendar(HTMLCalendar):
 
     def formatmonth(self, withyear=True):
         goals = Goal.objects.filter(
-            end__year=self.year, end__month=self.month
+            end__year=self.year, end__month=self.month, assigned_to=self.user
         )
         month_app = (
             f"<table border='0' cellpadding='0' cellspacing='0' class='calendar'>\n"
